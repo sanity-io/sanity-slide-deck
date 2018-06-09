@@ -1,0 +1,17 @@
+{
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  },
+
+  "parts": [
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "deck.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slide.js"
+    }
+  ]
+}
