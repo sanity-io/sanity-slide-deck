@@ -1,10 +1,12 @@
 {
   "name": "sanity-plugin-slide-deck",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepublishOnly": "babel -d lib/ src/"
+    "watch": "babel src --copy-files --out-dir lib --watch",
+    "prepublishOnly": "npm run clean && babel src --copy-files --out-dir lib",
+    "clean": "rimraf lib"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +17,18 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.7.0"
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-sanity": "^4.0.2",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.9.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "rimraf": "^2.6.2"
   }
 }

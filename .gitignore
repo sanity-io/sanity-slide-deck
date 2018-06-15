@@ -1,3 +1,13 @@
+# Logs
+*.log
+
+# Compiled files
+lib
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency directories
 node_modules
-/lib
-.DS_Store
+
+.vscode
