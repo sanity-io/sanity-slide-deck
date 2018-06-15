@@ -11,6 +11,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "slide.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "slideVideo.js"
     }
   ]
 }

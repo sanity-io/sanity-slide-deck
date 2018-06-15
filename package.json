@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@sanity/image-url": "^0.132.2",
+    "get-video-id": "^3.1.0",
     "react": "^16.4.0"
   },
   "devDependencies": {

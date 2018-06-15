@@ -2,7 +2,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import myConfiguredSanityClient from 'part:@sanity/base/client'
 import SlidePreview from './Slidepreview'
 const builder = imageUrlBuilder(myConfiguredSanityClient)
-function urlFor (source) {
+function urlFor(source) {
   return builder.image(source)
 }
 
@@ -44,8 +44,8 @@ export default {
           type: 'block',
           marks: {
             decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Emphasis', value: 'em' }
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'}
             ],
             annotations: [
               {
@@ -60,18 +60,18 @@ export default {
                     type: 'string',
                     options: {
                       list: [
-                        { value: 'grow', title: 'Grow' },
-                        { value: 'shrink', title: 'Shrink' },
-                        { value: 'fade-out', title: 'Fade out' },
-                        { value: 'fade-up', title: 'Fade up' },
-                        { value: 'current-visible', title: 'Current visible' },
+                        {value: 'grow', title: 'Grow'},
+                        {value: 'shrink', title: 'Shrink'},
+                        {value: 'fade-out', title: 'Fade out'},
+                        {value: 'fade-up', title: 'Fade up'},
+                        {value: 'current-visible', title: 'Current visible'},
                         {
                           value: 'highlight-current-blue',
                           title: 'Highlight current blue'
                         },
-                        { value: 'highlight-red', title: 'Highlight red' },
-                        { value: 'highlight-green', title: 'Highlight green' },
-                        { value: 'highlight-blue', title: 'Highlight blue' }
+                        {value: 'highlight-red', title: 'Highlight red'},
+                        {value: 'highlight-green', title: 'Highlight green'},
+                        {value: 'highlight-blue', title: 'Highlight blue'}
                       ]
                     }
                   }
@@ -93,17 +93,17 @@ export default {
           }
         },
         {
-          type: 'video'
+          type: 'slideVideo'
         },
         {
           type: 'image',
-          options: { hotspot: true }
+          options: {hotspot: true}
         }
       ]
     },
     {
       name: 'notes',
-      title: 'Presenter\’s notes',
+      title: 'Presenter’s notes',
       type: 'array',
       of: [
         {
@@ -112,7 +112,7 @@ export default {
         },
         {
           type: 'image',
-          options: { hotspot: true }
+          options: {hotspot: true}
         }
       ]
     },
@@ -126,13 +126,13 @@ export default {
           type: 'string',
           options: {
             list: [
-              { value: 'zoom', title: 'Zooom' },
-              { value: 'fast', title: 'Fast' },
-              { value: 'slide', title: 'Slide' },
-              { value: 'slide-in', title: 'Slide in' },
-              { value: 'slide-out', title: 'Slide out' },
-              { value: 'fade-in', title: 'Fade in' },
-              { value: 'fade-out', title: 'Fade out' }
+              {value: 'zoom', title: 'Zooom'},
+              {value: 'fast', title: 'Fast'},
+              {value: 'slide', title: 'Slide'},
+              {value: 'slide-in', title: 'Slide in'},
+              {value: 'slide-out', title: 'Slide out'},
+              {value: 'fade-in', title: 'Fade in'},
+              {value: 'fade-out', title: 'Fade out'}
             ]
           }
         }
@@ -145,17 +145,16 @@ export default {
       media: 'content',
       background: 'background'
     },
-    prepare ({ title = 'No title', media = [], background = {} }) {
+    prepare({title = 'No title', media = [], background = {}}) {
       const mediaRef = background.image
         ? background.image
-        : media.find(({ _type, asset }) => _type === 'image' && asset)
-      console.log(mediaRef)
-      const mediaUrl =
-        (mediaRef &&
-          urlFor(mediaRef.asset._ref)
+        : media.find(({_type, asset}) => _type === 'image' && asset)
+      const mediaUrl
+        = (mediaRef
+          && urlFor(mediaRef.asset._ref)
             .width(200)
-            .url()) ||
-        ''
+            .url())
+        || ''
       return {
         title,
         media: (
